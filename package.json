@@ -1,0 +1,16 @@
+{
+  "name": "itstep-chatbot-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "chat": "node --env-file=.env chat.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^4.38.5"
+  }
+}
