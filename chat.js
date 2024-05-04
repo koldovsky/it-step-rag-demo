@@ -3,34 +3,34 @@ import OpenAI from "openai";
 
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
-const tools = [
-    {
-        "type": "function",
-        "function": {
-            "name": "bookCourse",
-            "description": "Books a course for the user.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "userName": {
-                        "type": "string",
-                        "description": "Name of the user.",
-                    },
-                    "courseName": {
-                        "type": "string",
-                        "enum": ["Python", "JavaScript", "AI"],
-                        "description": "Name of the course.",
-                    },
-                    "numOfSeats": {
-                        "type": "number",
-                        "description": "Number of seats",
-                    },
-                },
-                "required": ["userName", "courseName", "numOfSeats"],
-            },
-        }
-    },
-];
+// const tools = [
+//     {
+//         "type": "function",
+//         "function": {
+//             "name": "bookCourse",
+//             "description": "Books a course for the user.",
+//             "parameters": {
+//                 "type": "object",
+//                 "properties": {
+//                     "userName": {
+//                         "type": "string",
+//                         "description": "Name of the user.",
+//                     },
+//                     "courseName": {
+//                         "type": "string",
+//                         "enum": ["Python", "JavaScript", "AI"],
+//                         "description": "Name of the course.",
+//                     },
+//                     "numOfSeats": {
+//                         "type": "number",
+//                         "description": "Number of seats",
+//                     },
+//                 },
+//                 "required": ["userName", "courseName", "numOfSeats"],
+//             },
+//         }
+//     },
+// ];
 
 async function generateResponse(message, chatHistory, tools) {
     chatHistory.push({ role: "user", content: message });
@@ -39,8 +39,8 @@ async function generateResponse(message, chatHistory, tools) {
         messages: chatHistory,
         temperature: 0,
         max_tokens: 4096,
-        tools: tools,
-        tool_choice: 'bookCourse',
+        // tools: tools,
+        // tool_choice: 'bookCourse',
     });
     const botMessage = response.choices[0].message.content;
     chatHistory.push({ role: "assistant", content: botMessage });

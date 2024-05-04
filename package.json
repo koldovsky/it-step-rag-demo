@@ -5,12 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "chat": "node --env-file=.env chat.js"
+    "chat": "node --env-file=.env chat.js",
+    "search": "node --env-file=.env search.js",
+    "rag": "node --env-file=.env rag.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@langchain/openai": "^0.0.28",
+    "langchain": "^0.1.36",
     "openai": "^4.38.5"
   }
 }
